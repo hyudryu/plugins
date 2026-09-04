@@ -1,5 +1,5 @@
 ---
-name: Make Bot UI
+name: make-bot-ui
 description: >-
   Use when building a custom UI (page, dashboard, buttons) that should wake a
   Grok Bot over a webhook, when the user must provide a webhook sender key, or
@@ -23,17 +23,15 @@ The create result does not include the sender key.
 
 ## Copy the URL and the sender key
 
-The webhook URL and the sender key live on that routine's panel after the routine exists. Do not invent other clicks.
+The webhook endpoint URL and the sender key are attached to that routine after the routine exists (typically on the routine's own panel). The bot wakes when that endpoint receives a POST. Do not invent other clicks.
 
-Tell the user to do this:
+Tell the user where to look:
 
-1. Click this agent's name in the chat header, or press **Cmd+Shift+I**.
-2. Find the **Routines** list under the computer preview.
-3. Open this webhook routine.
-4. Copy the webhook URL. The user may paste the URL in chat.
-5. Copy the sender key. The user must not paste the sender key in chat.
+1. Open the routine's panel for this webhook routine.
+2. Copy the webhook URL. The user may paste the URL in chat.
+3. Copy the sender key. The user must not paste the sender key in chat.
 
-The URL looks like `https://api2.cursor.sh/automations/webhook/<id>` with no query string. Copy the URL from the routine. Do not guess the id.
+The URL is a webhook endpoint that wakes this bot (for example a path on the bot host or a tunneled URL), with no query string. Copy the URL from the routine. Do not guess the id.
 
 ## Request the sender key
 

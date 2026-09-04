@@ -2,8 +2,8 @@
 
 **You own the skill's voice.** Agent-facing prose has a higher bar than human prose; unhelpful sentences become instructions.
 
-1. Use the **create-skill** skill (Cursor's built-in for authoring SKILL.md files).
-2. Validate the skill: frontmatter has `name` and `description`, referenced files exist, cross-skill links resolve.
+1. Author the SKILL.md per the ZCode conventions (the `skill-creator` skill is the peer reference). Frontmatter has `name` in lowercase-hyphen form and a `description` as one YAML scalar starting with "Use when"; the description is the skill's only trigger, so scope it tightly. ZCode ignores other frontmatter keys — keep the file minimal. Support the body with sibling subdirectories as needed: `references/` for lookups, `templates/` for reusable scaffolds, `scripts/` for tooling.
+2. Validate the skill: the frontmatter parses between the first two `---` lines, `name` is lowercase-hyphen, the description's trigger sits in the opening sentence, every referenced file and support directory exists, and cross-skill links resolve.
 3. Test cases if structural; skip if subjective.
 4. Run **Opening a PR**.
 
