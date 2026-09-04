@@ -334,6 +334,9 @@ function isBugbot(comment: T.ReviewComment | null): boolean {
   if (comment === null) return false;
   const author = (comment.authorLogin ?? "").toLowerCase();
   const body = comment.body.toLowerCase();
+  // Bot markers: Cursor's Bugbot stamps cursor_automation_id; pstack automations
+  // stamp pstack_automation_id. Author "cursor" only counts with a marker in the
+  // body, so unrelated comments by that account are not bot comments.
   return (
     author.includes("bugbot") ||
     (author === "cursor" &&
@@ -343,7 +346,8 @@ function isBugbot(comment: T.ReviewComment | null): boolean {
         "agentic security review",
         "description start",
         "severity",
-      ].some((token) => body.includes(token)))
+      ].some((token) => body.includes(token))) ||
+    body.includes("pstack_automation_id")
   );
 }
 function passKey(comment: T.ReviewComment | null): string | null {
@@ -351,6 +355,7 @@ function passKey(comment: T.ReviewComment | null): string | null {
   for (const pattern of [
     /RUN_ID:\s*([a-zA-Z0-9_.:-]+)/,
     /CURSOR_AUTOMATION_ID:\s*([a-zA-Z0-9_.:-]+)/,
+    /PSTACK_AUTOMATION_ID:\s*([a-zA-Z0-9_.:-]+)/,
   ]) {
     const match = pattern.exec(comment.body);
     if (match?.[1]) return match[1];

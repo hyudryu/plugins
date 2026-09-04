@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: TypeScript best practices. Use when reading or editing any .ts or .tsx file.
+description: "Use when reading or editing any .ts or .tsx file, or when applying TypeScript type discipline. Best practices: discriminated unions, branded types, unknown over any, no as casts, exhaustiveness, schema-derived types."
 ---
 
 # TypeScript best practices

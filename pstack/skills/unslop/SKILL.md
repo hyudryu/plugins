@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Cut AI tells from any writing. Must always apply.
+description: "Use when editing any text to strip AI patterns, filler, hedge words, and formatting tells and add a human voice. Apply before finalizing any prose."
 ---
 
 # Unslop

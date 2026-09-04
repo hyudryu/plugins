@@ -1,8 +1,8 @@
 # Reproduce automation prompt
 
-> Source material for the copied setup workflow. Paraphrase this intent into a built-in `automate` draft after `automate` confirms that the copied pack is committed in the repository where the automation will run.
+> Source material for the copied setup workflow. Paraphrase this intent into a `CronCreate` automation prompt once the copied pack is committed in the repository where the automation will run. The automation runs in its own session, so the prompt must be fully self-contained.
 
-Read and follow `.cursor/automations/benny/skills/reproduce-and-fix-issues/SKILL.md` for this run.
+Read and follow `automations/benny/skills/reproduce-and-fix-issues/SKILL.md` for this run.
 
 Configuration source. Include this repository-relative path only when it is committed in the same target repository. Otherwise paraphrase the configured values. Never use a plugin source or cache path:
 
